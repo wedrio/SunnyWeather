@@ -72,6 +72,7 @@ public class ChooseAreaFragment extends Fragment {
         backButton = (Button) view.findViewById(R.id.back_button);
         listView = (ListView) view.findViewById(R.id.list_view);
         adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,dataList);
+        listView.setAdapter(adapter);
         return view;
     }
     @Override
@@ -111,7 +112,7 @@ public class ChooseAreaFragment extends Fragment {
         provinceList = DataSupport.findAll(Province.class);
         if (provinceList.size()>0){
             dataList.clear();
-            for (Province province:provinceList){
+            for (Province province : provinceList){
                 dataList.add(province.getProvinceName());
             }
             adapter.notifyDataSetChanged();

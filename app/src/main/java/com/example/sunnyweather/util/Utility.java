@@ -19,10 +19,10 @@ public class Utility {
             try {
                 JSONArray allProvinces = new JSONArray(response);
                 for (int i = 0; i < allProvinces.length(); i++) {
-                    JSONObject object = allProvinces.getJSONObject(i);
+                    JSONObject provinceobject = allProvinces.getJSONObject(i);
                     Province province = new Province();
-                    province.setProvinceName(object.getString("name"));
-                    province.setProvinceCode(object.getInt("id"));
+                    province.setProvinceName(provinceobject.getString("name"));
+                    province.setProvinceCode(provinceobject.getInt("id"));
                     province.save();
                 }
                 return true;
@@ -40,10 +40,10 @@ public class Utility {
             try {
                 JSONArray allCities = new JSONArray(response);
                 for (int i = 0; i < allCities.length(); i++) {
-                    JSONObject object = allCities.getJSONObject(i);
+                    JSONObject cityobject = allCities.getJSONObject(i);
                     City city = new City();
-                    city.setCityName(object.getString("name"));
-                    city.setCityCode(object.getInt("id"));
+                    city.setCityName(cityobject.getString("name"));
+                    city.setCityCode(cityobject.getInt("id"));
                     city.setProvinceId(provinceId);
                     city.save();
                 }
@@ -62,10 +62,10 @@ public class Utility {
             try {
                 JSONArray allCounties = new JSONArray(response);
                 for (int i = 0; i < allCounties.length(); i++) {
-                    JSONObject object = allCounties.getJSONObject(i);
+                    JSONObject countyobject = allCounties.getJSONObject(i);
                     County county = new County();
-                    county.setCountyName(object.getString("name"));
-                    county.setWeatherId(object.getString("weather_id"));
+                    county.setCountyName(countyobject.getString("name"));
+                    county.setWeatherId(countyobject.getString("weather_id"));
                     county.setCityId(cityId);
                     county.save();
                 }
